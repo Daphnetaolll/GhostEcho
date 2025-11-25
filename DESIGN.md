@@ -6,7 +6,7 @@
 **Author:** Daphne Tao (DAPHNIII)
 **Last Updated:** November 2025
 
--
+
 
 ## 1. Introduction
 
@@ -60,14 +60,14 @@ Audio Export / Real-Time Output
 
 #### 4.1 High-Level Architecture Diagram
 
-```mermaid
+```
 flowchart TD
-    UI[Web UI (Gradio)] --> Decode[Audio Decode & WAV Normalization]
-    Decode --> StudioMode[Studio DSP Engine (Python)]
-    Decode --> LiveMode[Live DSP Engine (Csound + OSC)]
-    StudioMode --> Preview[Waveform Preview]
-    LiveMode --> OutputDAC[Audio Output (dac)]
-    StudioMode --> Export[WAV/MP3 Export]
+    UI(Gradio Web UI) --> Decode (Audio Decode and WAV Normalization)
+    Decode --> StudioMode (Python custom DSP Engine)
+    Decode --> LiveMode(Csound + OSC)
+    StudioMode --> Preview
+    LiveMode --> OutputDAC
+    StudioMode --> Export
 ```
 
 
