@@ -60,14 +60,14 @@ Audio Export / Real-Time Output
 
 #### 4.1 High-Level Architecture Diagram
 
-```
+```mermaid
 flowchart TD
-    UI(Gradio Web UI) --> Decode (Audio Decode and WAV Normalization)
-    Decode --> StudioMode (Python custom DSP Engine)
-    Decode --> LiveMode(Csound + OSC)
-    StudioMode --> Preview
-    LiveMode --> OutputDAC
-    StudioMode --> Export
+    UI["Web UI / Gradio"] --> Decode["Audio Decode + WAV Normalization"]
+    Decode --> StudioMode["Studio DSP Engine (Python)"]
+    Decode --> LiveMode["Live DSP Engine (Csound + OSC)"]
+    StudioMode --> Preview["Waveform Preview"]
+    LiveMode --> OutputDAC["Audio Output (dac)"]
+    StudioMode --> Export["WAV / MP3 Export"]
 ```
 
 
@@ -153,9 +153,9 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **6. Data Models**
+## 6. Data Models
 
-### **6.1 Audio State Object**
+### 6.1 Audio State Object
 
 ```json
 {
@@ -171,7 +171,7 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 }
 ```
 
-### **6.2 Processing Response Model**
+### 6.2 Processing Response Model
 
 ```json
 {
@@ -184,9 +184,9 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **7. API Design**
+## 7. API Design
 
-### **7.1 Public API (Python Internal)**
+### 7.1 Public API (Python Internal)
 
 #### `apply_distortion(input_path, mode, intensity)`
 
@@ -204,15 +204,15 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **8. Performance Considerations**
+## 8. Performance Considerations
 
-### **8.1 Offline (Studio Mode)**
+### 8.1 Offline (Studio Mode)
 
 * Segment-wise processing balances compute vs. fidelity
 * librosa timestretching is cached to minimize repeated computation
 * No multithreading available via Gradio, so operations kept under 2–4s
 
-### **8.2 Real-Time (Live Mode)**
+### 8.2 Real-Time (Live Mode)
 
 * Csound buffer set to:
 
@@ -224,7 +224,7 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **9. Security & Safety**
+## 9. Security & Safety
 
 * No persistent storage
 * All temporary files wiped on session end
@@ -234,29 +234,29 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **10. Testing Strategy**
+## 10. Testing Strategy
 
-### **10.1 Unit Tests**
+### 10.1 Unit Tests
 
 * DSP function outputs
 * Segment boundaries
 * WAV decode/encode correctness
 * OSC command dispatch
 
-### **10.2 Integration Tests**
+### 10.2 Integration Tests
 
 * UI → backend update propagation
 * Csound roundtrip signal integrity
 * Export correctness (WAV/MP3)
 
-### **10.3 Manual Tests**
+### 10.3 Manual Tests
 
 * Latency measurement for Live Mode
 * Large file stress test ( > 5 min tracks )
 
 
 
-## **11. Failure Scenarios & Mitigations**
+## 11. Failure Scenarios & Mitigations
 
 | Failure                     | Cause                 | Mitigation                       |
 | --------------------------- | --------------------- | -------------------------------- |
@@ -267,7 +267,7 @@ Frontend ──OSC──▶ Csound Audio Engine (ghostecho_live.csd)
 
 
 
-## **12. Dependencies**
+## 12. Dependencies
 
 Complete list from requirements:
 
@@ -291,30 +291,30 @@ Additional:
 
 
 
-## **13. Future Roadmap**
+## 13. Future Roadmap
 
-### **Short-Term**
+### Short-Term
 
 * Expand DSP modes 
 * Optimize DSP algorithms for higher fidelity
 * User preset system
 * Develop a VST/AU plugin version 
 
-### **Medium-Term**
+### Medium-Term
 
 * WebMIDI support
 * Push/MPC controller mapping
 * Rebuild the web interface without using Gradio, focusing on a custom and polished UI.
 
-### **Long-Term**
+### Long-Term
 
 * Collaborative multi-user performance mode
 * Mobile interactive app
 
 
-## **14. Appendix**
+## 14. Appendix
 
-### **14.1 Audio Signal Path (Live Mode)**
+### 14.1 Audio Signal Path (Live Mode)
 
 ```mermaid
 flowchart LR
@@ -323,7 +323,7 @@ flowchart LR
     EQ --> Out[dac]
 ```
 
-### **14.2 Example OSC Mapping**
+### 14.2 Example OSC Mapping
 
 | UI Control  | OSC Channel | Range |
 | ----------- | ----------- | ----- |
@@ -334,5 +334,5 @@ flowchart LR
 
 
 
-## **End of Document**
+## End of Document
 
