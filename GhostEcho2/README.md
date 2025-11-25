@@ -1,4 +1,4 @@
-#GhostEcho — Memory Distortion Audio Tool
+# GhostEcho — Memory Distortion Audio Tool
 **Developer:** Daphne Tao — *DAPHNIII*
 
 GhostEcho is a browser-based audio tool that transforms sound into expressive, memory-like distortions.
