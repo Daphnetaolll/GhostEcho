@@ -47,25 +47,15 @@ Use a microphone, guitar, modular synth, or any instrument as input and perform 
 
 **Live Effects:**
 
-- **Pitch Shifter**
- - Dry/Wet control
- - Semitone shifting
+- **Pitch Shifter:** Dry/Wet control, Semitone shifting
 
-- **Ring Modulation**
- - Dry/Wet control for Metallic textures
+- **Ring Modulation:** Dry/Wet control for Metallic textures
 
-- **Blur Effect**
- - Wet/Dry control
- - Blur length (delay time)
+- **Blur Effect:** Wet/Dry control, Blur length (delay time)
 
-- **Flanger**
- - Wet/Dry control
- - LFO rate for modulation speed
+- **Flanger:** Wet/Dry control, LFO rate for modulation speed
 
-- **EQ Section**
- - High frequency shelf EQ
- - Mid frequency band EQ
- - Low frequency shelf EQ
+- **EQ Section:** High frequency shelf EQ, Mid frequency band EQ, Low frequency shelf EQ
 
 Each effect is mapped for live expression, designed for smooth performance use.
 
@@ -122,6 +112,9 @@ pip install -r requirements.txt
 
 Ensure the csound command is available in your terminal.
 
+### 4. Install ffmpeg
+  - **macOS**: `brew install ffmpeg`
+  - **Windows**: install ffmpeg and add it to PATH 
 
 ## Usage
 ### Run the Application
