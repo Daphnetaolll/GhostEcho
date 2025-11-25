@@ -14,7 +14,7 @@ GhostEcho supports two workflows:
 
 This project is part of my creative-coding, DSP, and interactive-performance portfolio.
 
-##Introduction
+## Introduction
 
 GhostEcho is built as a hybrid audio system combining:
 
@@ -28,8 +28,8 @@ GhostEcho is built as a hybrid audio system combining:
 
 The goal is to create a sound tool that is both artist-friendly and technically expressive, enabling users to perform, experiment, and reshape audio instantly without needing a DAW.
 
-##Features
-###Studio Mode
+## Features
+### Studio Mode
 Upload a WAV/MP3, apply effects, preview instantly, and download high-quality audio.
 
 Includes:
@@ -52,7 +52,7 @@ Output formats:
 
 - MP3 
 
-###Live Mode — Real-Time Performance Effects
+### Live Mode — Real-Time Performance Effects
 
 Use a microphone, electric cello, modular synth, or any instrument as input and perform with expressive, interactive effects.
 
@@ -82,7 +82,7 @@ Use a microphone, electric cello, modular synth, or any instrument as input and 
 
 Each effect is mapped for live expression, designed for smooth performance use.
 
-##Requirements
+## Requirements
 
 To run GhostEcho locally:
 
@@ -115,27 +115,27 @@ Check installation:
 
 Required by Pydub for MP3/WAV decoding and encoding.
 
-##Installation
+## Installation
 
-###1. Clone the repository
+### 1. Clone the repository
 
 ```
 git clone https://github.com/yourname/ghosteho
 cd ghostecho
 ```
 
-###2. Install Python dependencies
+### 2. Install Python dependencies
 
 ```
 pip install -r requirements.txt
 ```
 
-###3. Install Csound
+### 3. Install Csound
 [Download from] (https://csound.com/download.html)
 
 Ensure the csound command is available in your terminal.
 
-###4. Install FFmpeg
+### 4. Install FFmpeg
 
 Mac:
 ```
@@ -144,13 +144,13 @@ brew install ffmpeg
 
 Windows or Linux: [install from] (https://ffmpeg.org/download.html)
 
-##Usage
+## Usage
 Run the Application
 ```
 python app.py
 ```
 
-###Studio Mode
+### Studio Mode
 
 1. Upload a WAV/MP3 file
 
@@ -162,7 +162,7 @@ python app.py
 
 5. Export high-quality audio (WAV/MP3)
 
-###Live Mode
+### Live Mode
 
 1. Select your audio input (mic, instrument, BlackHole, Loopback, etc.)
 
@@ -172,7 +172,7 @@ python app.py
 
 4. Perform live with pitch, ring mod, blur, and flanger effects
 
-##System Architecture (Optional)
+## System Architecture (Optional)
 ```
 Browser (Gradio UI + Wavesurfer.js)
           │
@@ -196,6 +196,6 @@ Browser (Gradio UI + Wavesurfer.js)
 
 - Web UI handles playback, preview, and rendering
 
-##License
+## License
 
 MIT License 
