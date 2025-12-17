@@ -1,4 +1,4 @@
-# GhostEcho — 
+# GhostEcho 
 ## Live Interactive Web Audio FX - Memory Distortion Audio Tool 
 
 **Developer:** Daphne Tao - *DAPHNIII*
