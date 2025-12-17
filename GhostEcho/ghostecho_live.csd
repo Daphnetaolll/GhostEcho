@@ -1,8 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
-; If using BlackHole or Loopback for virtual routing:
-; use -iadc -odac directly.
--odac -iadc ;-b128 -B512
+-odac -iadc 
 </CsOptions>
 <CsInstruments>
 
@@ -35,9 +33,6 @@ chn_k "highEQ", 1
 chn_k "midEQ", 1
 chn_k "lowEQ", 1
 
-; Global parameters (controlled via OSC from GhostEcho)
-;giMode init 0        
-;gkFast init 0        ; fast preview toggle (0/1)
 
 ; OSC Listener
 ; Receives parameters from GhostEcho (127.0.0.1:7777)
@@ -141,12 +136,6 @@ instr OSCListen
         chnset kVal, "highEQ"
     endif
     
-;    ;_______________________
-;    ; Receive fast preview toggle
-;    kGot3 OSClisten ihOSC, "/gh/fast", "i", kVal
-;    if kGot3 == 1 then
-;        gkFast = kVal
-;    endif
 endin
 
 ; ___________________________________________________________
@@ -314,7 +303,7 @@ instr Live
 ;		 kLowGain  = (kLow  * 2)
 ;		 kMidGain  = (kMid  * 2)
 ;		 kHighGain = (kHigh * 2)
-		 kLowGain  = ampdb(kLowdB)   ; -12~+12 dB → ~0.25~4 倍
+		 kLowGain  = ampdb(kLowdB)   
 		 kMidGain  = ampdb(kMiddB)
 		 kHighGain = ampdb(kHighdB)
 
@@ -386,6 +375,8 @@ i "Live"      0 3600
 
 
 
+
+
 <bsbPanel>
  <label>Widgets</label>
  <objectName/>
@@ -400,7 +391,7 @@ i "Live"      0 3600
   <g>244</g>
   <b>253</b>
  </bgcolor>
- <bsbObject type="BSBKnob" version="2">
+ <bsbObject version="2" type="BSBKnob">
   <objectName>knob0</objectName>
   <x>333</x>
   <y>331</y>
@@ -430,7 +421,7 @@ i "Live"      0 3600
   <flatstyle>true</flatstyle>
   <integerMode>false</integerMode>
  </bsbObject>
- <bsbObject type="BSBKnob" version="2">
+ <bsbObject version="2" type="BSBKnob">
   <objectName>knob1</objectName>
   <x>461</x>
   <y>402</y>
@@ -460,7 +451,7 @@ i "Live"      0 3600
   <flatstyle>true</flatstyle>
   <integerMode>false</integerMode>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>blur_len</objectName>
   <x>293</x>
   <y>512</y>
@@ -479,7 +470,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>309</x>
   <y>705</y>
@@ -510,7 +501,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>347</x>
   <y>648</y>
@@ -541,7 +532,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>302</x>
   <y>620</y>
@@ -572,7 +563,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>pitch_on</objectName>
   <x>66</x>
   <y>40</y>
@@ -591,7 +582,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>76</x>
   <y>152</y>
@@ -622,7 +613,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>pitch_wet</objectName>
   <x>134</x>
   <y>72</y>
@@ -641,7 +632,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>143</x>
   <y>177</y>
@@ -672,7 +663,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>pitch_semitone</objectName>
   <x>211</x>
   <y>50</y>
@@ -691,7 +682,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>205</x>
   <y>156</y>
@@ -722,7 +713,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>ring_on</objectName>
   <x>86</x>
   <y>263</y>
@@ -741,7 +732,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>78</x>
   <y>376</y>
@@ -772,7 +763,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>ring_wet</objectName>
   <x>152</x>
   <y>268</y>
@@ -791,7 +782,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>142</x>
   <y>377</y>
@@ -822,7 +813,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>blur_on</objectName>
   <x>85</x>
   <y>438</y>
@@ -841,7 +832,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>blur_wet</objectName>
   <x>156</x>
   <y>440</y>
@@ -860,7 +851,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>89</x>
   <y>553</y>
@@ -891,7 +882,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>164</x>
   <y>552</y>
@@ -922,37 +913,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBKnob" version="2">
-  <objectName>highEQ</objectName>
-  <x>448</x>
-  <y>110</y>
-  <width>80</width>
-  <height>80</height>
-  <uuid>{ede326a0-e8ff-4b5f-9ee1-242c46b22e89}</uuid>
-  <visible>true</visible>
-  <midichan>0</midichan>
-  <midicc>0</midicc>
-  <description/>
-  <minimum>-12.00000000</minimum>
-  <maximum>12.00000000</maximum>
-  <value>0.80640000</value>
-  <mode>lin</mode>
-  <mouseControl act="">continuous</mouseControl>
-  <resolution>0.01000000</resolution>
-  <randomizable group="0">false</randomizable>
-  <color>
-   <r>245</r>
-   <g>124</g>
-   <b>0</b>
-  </color>
-  <textcolor>#512900</textcolor>
-  <border>0</border>
-  <borderColor>#512900</borderColor>
-  <showvalue>true</showvalue>
-  <flatstyle>true</flatstyle>
-  <integerMode>false</integerMode>
- </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>459</x>
   <y>196</y>
@@ -983,7 +944,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBKnob" version="2">
+ <bsbObject version="2" type="BSBKnob">
   <objectName>midEQ</objectName>
   <x>564</x>
   <y>141</y>
@@ -1013,7 +974,7 @@ i "Live"      0 3600
   <flatstyle>true</flatstyle>
   <integerMode>false</integerMode>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>575</x>
   <y>231</y>
@@ -1044,7 +1005,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBKnob" version="2">
+ <bsbObject version="2" type="BSBKnob">
   <objectName>lowEQ</objectName>
   <x>684</x>
   <y>141</y>
@@ -1074,7 +1035,7 @@ i "Live"      0 3600
   <flatstyle>true</flatstyle>
   <integerMode>false</integerMode>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>704</x>
   <y>227</y>
@@ -1105,7 +1066,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>flanger_on</objectName>
   <x>65</x>
   <y>657</y>
@@ -1124,7 +1085,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>59</x>
   <y>792</y>
@@ -1155,7 +1116,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>flanger_wet</objectName>
   <x>139</x>
   <y>657</y>
@@ -1174,7 +1135,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>132</x>
   <y>772</y>
@@ -1205,7 +1166,7 @@ i "Live"      0 3600
   <borderradius>1</borderradius>
   <borderwidth>0</borderwidth>
  </bsbObject>
- <bsbObject type="BSBVSlider" version="2">
+ <bsbObject version="2" type="BSBVSlider">
   <objectName>lfo_rate</objectName>
   <x>199</x>
   <y>665</y>
@@ -1224,7 +1185,7 @@ i "Live"      0 3600
   <resolution>-1.00000000</resolution>
   <randomizable group="0">false</randomizable>
  </bsbObject>
- <bsbObject type="BSBLabel" version="2">
+ <bsbObject version="2" type="BSBLabel">
   <objectName/>
   <x>196</x>
   <y>778</y>
